@@ -14,10 +14,10 @@ setInterval(()=>{
   // var no = Math.floor(2+16*Math.random() | 0);
   // var xc = Math.floor(c.width*Math.random() | 0);
   // var yd = Math.floor(c.height*Math.random() | 0);
-  ctx.fillStyle="hsl("+360*Math.random()+",100%,50%)";
-  ctx.strokeStyle="hsl("+360*Math.random()+",100%,50%)";
+  ctx.fillStyle="hsl("+360+",100%,50%)";
+  ctx.strokeStyle="hsl("+360+",100%,50%)";
   for(let a = 0; a < 2*Math.PI*10;a+= 0.02){
-    var r = 200* Math.cos(7 * a);
+    var r = 50* Math.cos(7 * a);
     var x = xc + r * Math.cos(a);
     var y = yd + r * Math.sin(a);
     ctx.lineWidth=1;
@@ -26,6 +26,10 @@ setInterval(()=>{
   ctx.stroke();
   ctx.fill();
   yd += 10;
-},100);
+  if ( yd > c.height || yd < -c.height) {
+    // xc = Math.floor(c.width*Math.random() | 0);
+    yd = Math.floor(c.height*Math.random() | 0);
+  }
+},50);
 
 
