@@ -12,7 +12,6 @@ var ctx = c.getContext("2d");
     var y = r * Math.cos(a);
     ctx.beginPath(); //Start path
     ctx.arc(x, y, 5, 0, Math.PI * 2, true); 
-    ctx.closePath();
     ctx.stroke();
     ctx.fillStyle = "#ff2626"; // Red color
     ctx.fill(); 
