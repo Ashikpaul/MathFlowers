@@ -2,31 +2,33 @@ var c = document.getElementById("myCanvas");
 c.height = window.innerHeight;
 c.width = window.innerWidth;
 var ctx = c.getContext("2d");
-ctx.translate(c.width/2, c.height/2);
-setInterval(()=>{
-  ctx.clearRect(0,0,c.width, c.height)
-  var blah = Math.random() * 5 | 1;
-  for(let a = 0; a < 2*Math.PI;a+= 0.005){
-    var r = 400* Math.cos(blah * a);
-    var x = r * Math.cos(a);
-    var y = r * Math.sin(a);
-    ctx.fillStyle = "#ff2626"; // Red color
+
+// setInterval(()=>{
+  ctx.translate(c.width/2, c.height/2);
+  ctx.clearRect(0,0,c.width, c.height);
+  for(let a = 0; a < 2*Math.PI;a+= 0.0021){
+    var r = 350* Math.cos(7 * a);
+    var x = r * Math.sin(a);
+    var y = r * Math.cos(a);
     ctx.beginPath(); //Start path
     ctx.arc(x, y, 5, 0, Math.PI * 2, true); 
-    ctx.fill(); 
+    ctx.closePath();
     ctx.stroke();
+    ctx.fillStyle = "#ff2626"; // Red color
+    ctx.fill(); 
   }
 
-  for(let a = 0; a < 2*Math.PI;a+= 0.005){
-    var r = 400* Math.sin(blah * a);
+  for(let a = 0; a < 2*Math.PI;a+= 0.0021){
+    var r = 350* Math.sin(7 * a);
     var x = r * Math.cos(a);
     var y = r * Math.sin(a);
-    ctx.fillStyle = "#ff2626"; // Red color
+    ctx.fillStyle = "#ffAA26"; // Red color
     ctx.beginPath(); //Start path
     ctx.arc(x, y, 5, 0, Math.PI * 2, true); 
     ctx.fill(); 
+    ctx.closePath();
     ctx.stroke();
   }
-},1500);
+// },500);
 
 
