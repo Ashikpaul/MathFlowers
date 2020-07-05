@@ -5,7 +5,7 @@ var ctx = c.getContext("2d");
 ctx.translate(c.width/2, c.height/2);
 setInterval(()=>{
   ctx.clearRect(0,0,c.width, c.height)
-  var blah = Math.random() * 5 | 0;
+  var blah = Math.random() * 5 | 1;
   for(let a = 0; a < 2*Math.PI;a+= 0.005){
     var r = 400* Math.cos(blah * a);
     var x = r * Math.cos(a);
