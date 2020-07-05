@@ -17,7 +17,7 @@ class Flower{
     ctx.beginPath();
     ctx.moveTo(this.xc, this.yd);
     for(let a = 0; a < 2*Math.PI;a+= 0.02){
-      this.r = 30 * Math.cos(6 * a);
+      this.r = 30 * Math.cos(4 * a);
       this.x = this.xc + this.r * Math.cos(a);
       this.y = this.yd + this.r * Math.sin(a);
       ctx.lineWidth=1;
@@ -27,15 +27,17 @@ class Flower{
     ctx.strokeStyle="hsl("+this.border+",100%,50%)";
     ctx.stroke();
     ctx.fill();
-    ctx.rotate(-70 * Math.PI / 180);
   }
   
   fallFlower(){
+    ctx.save();
     this.yd += 5;
+    ctx.rotate((Math.random()*180|0) * Math.PI / 180);
     if ( this.yd > c.height || this.yd < -c.height) {
       this.xc = Math.floor(c.width*Math.random() | 0);
-      this.yd = Math.floor(-100 | 0);
+      this.yd = Math.floor(-50 | 0);
     }
+    ctx.restore();
   }
   
 }
