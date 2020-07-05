@@ -7,22 +7,19 @@ var ctx = c.getContext("2d");
 
 class Flower{
   constructor(){
-    this.xc = Math.floor(c.width*Math.random() | 0);
-    this.yd = Math.floor(c.height*Math.random() | 0);
+    this.xc = c.width * Math.random();
+    this.yd = c.height * Math.random();
   }
   
   showFlower(){
-    ctx.clearRect(0,0,c.width, c.height);
     ctx.beginPath();
     ctx.moveTo(this.xc, this.yd);
-    ctx.fillStyle="hsl(360,100%,50%)";
-    ctx.strokeStyle="hsl(360,100%,50%)";
     for(let a = 0; a < 2*Math.PI*10;a+= 0.02){
-      var r = 50* Math.cos(7 * a);
-      var x = this.xc + r * Math.cos(a);
-      var y = this.yd + r * Math.sin(a);
+      this.r = 20 * Math.cos(7 * a);
+      this.x = this.xc + this.r * Math.cos(a);
+      this.y = this.yd + this.r * Math.sin(a);
       ctx.lineWidth=1;
-      ctx.lineTo(x,y);
+      ctx.lineTo(this.x,this.y);
     }
     ctx.stroke();
     ctx.fill();
@@ -75,6 +72,9 @@ let flowersArr = [];
 //create 1500 stars (objects)
 for (let i = 0; i < 1500; i++) flowersArr.push(new Flower());
 
+ctx.fillStyle="hsl(360,100%,50%)";
+ctx.strokeStyle="hsl(360,100%,50%)";
+
 function draw() {
   ctx.clearRect(0,0,c.width, c.height);
   for (let s of flowersArr) {
@@ -82,7 +82,10 @@ function draw() {
     s.showFlower();
   }
   //infinte call to draw
-  requestAnimationFrame(draw);
+  setInterval(()=>{
+    draw();
+  },500);
+  // requestAnimationFrame(draw);
 }
 
 draw();
