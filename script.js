@@ -17,7 +17,7 @@ class Flower{
     ctx.beginPath();
     ctx.moveTo(this.xc, this.yd);
     for(let a = 0; a < 2*Math.PI;a+= 0.02){
-      this.r = 20 * Math.cos(7 * a);
+      this.r = 30 * Math.cos(4 * a);
       this.x = this.xc + this.r * Math.cos(a);
       this.y = this.yd + this.r * Math.sin(a);
       ctx.lineWidth=1;
@@ -42,25 +42,15 @@ class Flower{
 let flowersArr = [];
 
 //create 1500 stars (objects)
-for (let i = 0; i < 252; i++) flowersArr.push(new Flower());
+for (let i = 0; i < 200; i++) flowersArr.push(new Flower());
 
 function draw() {
   ctx.clearRect(0,0,c.width, c.height);
   for (let s of flowersArr) {
-    // setTimeout(()=>{
-      // draw();
       s.fallFlower();
       s.showFlower();
-    // },500);
   }
-  //infinte call to draw
-  
-//      setTimeout(()=>{
-//       draw();
-//       // s.fallFlower();
-//       // s.showFlower();
-//     },10);
-  // requestAnimationFrame(draw);
+  requestAnimationFrame(draw);
 }
 
 draw();
