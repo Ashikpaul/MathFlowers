@@ -1,5 +1,6 @@
 /* CSS files add styling rules to your content */
 
 body {
-  background : black;
+  background : #03023d;
+  overflow: hidden;
 }
