@@ -2,8 +2,7 @@ var c = document.getElementById("myCanvas");
 c.width=window.innerWidth;
 c.height=window.innerHeight;
 var ctx = c.getContext("2d");
-
-// ctx.translate(c.width/2, c.height/2);
+var cy =c.height;
 
 class Flower{
   constructor(){
@@ -39,23 +38,23 @@ class Flower{
     }
     ctx.restore();
   }
-  
 }
 
 let flowersArr = [];
-
-//create 1500 stars (objects)
-for (let i = 0; i < 200; i++) flowersArr.push(new Flower());
+for (let i = 0; i < 250; i++) flowersArr.push(new Flower());
 
 function draw() {
   ctx.clearRect(0,0,c.width, c.height);
+  ctx.textAlign = "left";
+  ctx.fillStyle = "white";
+  ctx.font = "italic normal 23px monospace";
+  ctx.fillText("Made with 💖 by Ashik Paul", 0, cy);
   for (let s of flowersArr) {
-      s.fallFlower();
-      s.showFlower();
+    s.fallFlower();
+    s.showFlower();
   }
   requestAnimationFrame(draw);
 }
-
 draw();
 
 
