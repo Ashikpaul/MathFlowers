@@ -41,7 +41,7 @@ class Flower{
 }
 
 let flowersArr = [];
-for (let i = 0; i < 200; i++) flowersArr.push(new Flower());
+for (let i = 0; i < 150; i++) flowersArr.push(new Flower());
 
 function draw() {
   ctx.clearRect(0,0,c.width, c.height);
